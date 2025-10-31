@@ -14,39 +14,51 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <h1 id="site-title"></h1>
-      <p id="site-subtitle" class="subtitle"></p>
-      <div id="social-links" class="social-links"></div>
-      <div class="cta-group">
-        <a id="resume-link" class="btn primary" href="#" target="_blank" rel="noopener">Resume</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="assets/Resume.pdf" target="_blank" rel="noopener" data-nav="resume">Resume</a>
+        <a href="contact.html" data-nav="contact">Contact</a>
+      </nav>
+      <div class="hero">
+        <div class="intro">
+          <h1 id="site-title"></h1>
+          <p id="site-subtitle" class="subtitle"></p>
+          <div id="social-links" class="social-links"></div>
+        </div>
+        <figure class="photo" aria-label="Professional photo">
+          <picture>
+            <source srcset="assets/profile.jpeg">
+            <img src="https://raw.githubusercontent.com/Jyesht-2108/Resume/main/profile.jpeg" alt="Professional headshot of Jyesht M" loading="eager">
+          </picture>
+        </figure>
       </div>
     </div>
   </header>
 
   <main>
     <section class="section">
-      <div class="container">
+      <div class="container reveal">
         <h2>Skills</h2>
         <div id="skills" class="cards"></div>
       </div>
     </section>
 
     <section class="section alt">
-      <div class="container">
+      <div class="container reveal">
         <h2>Experience</h2>
         <div id="experience" class="timeline"></div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
+      <div class="container reveal">
         <h2>Projects</h2>
         <p id="projects-description" class="muted"></p>
       </div>
     </section>
 
     <section class="section alt">
-      <div class="container">
+      <div class="container reveal">
         <h2>Contact</h2>
         <div id="contact" class="contact"></div>
       </div>
@@ -59,6 +71,9 @@
     </div>
   </footer>
 
+  <script>
+    document.documentElement.setAttribute('data-page', 'home');
+  </script>
   <script src="./script.js"></script>
 </body>
 </html>

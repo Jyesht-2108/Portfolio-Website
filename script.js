@@ -4,7 +4,7 @@
     title: "Jyesht M",
     subTitle:
       "Calm by nature, precise by habit — I turn ideas into reliable infrastructure.",
-    resumeLink: "",
+    resumeLink: "https://github.com/Jyesht-2108/Resume",
     portfolio_repository: "https://github.com/Jyesht-2108",
     githubProfile: "https://github.com/Jyesht-2108",
   };
@@ -127,10 +127,12 @@
   });
 
   const resumeLink = document.getElementById("resume-link");
-  if (greeting.resumeLink) {
-    resumeLink.href = greeting.resumeLink;
-  } else if (resumeLink) {
-    resumeLink.style.display = "none";
+  if (resumeLink) {
+    if (greeting.resumeLink) {
+      resumeLink.href = greeting.resumeLink;
+    } else {
+      resumeLink.style.display = "none";
+    }
   }
   const githubCta = document.getElementById("github-link");
   if (githubCta) {
@@ -203,6 +205,90 @@
   // Footer
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("footer-name").textContent = greeting.title;
+
+  // Navigation: active link highlighting
+  const currentPage = document.documentElement.getAttribute('data-page');
+  const navLinks = document.querySelectorAll('.site-nav a[data-nav]');
+  navLinks.forEach((a) => {
+    const key = a.getAttribute('data-nav');
+    if (key === currentPage) {
+      a.classList.add('active');
+    }
+  });
+
+  // Smooth scroll behavior for on-page anchors (fallback for older browsers)
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      if (targetId.length > 1) {
+        const el = document.querySelector(targetId);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  // Contact form validation
+  const form = document.getElementById('contact-form');
+  if (form) {
+    const fields = {
+      name: form.querySelector('#name'),
+      email: form.querySelector('#email'),
+      subject: form.querySelector('#subject'),
+      message: form.querySelector('#message'),
+    };
+    function setError(field, message) {
+      const err = form.querySelector(`[data-error-for="${field.id}"]`);
+      if (err) err.textContent = message || '';
+    }
+    function validateEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).toLowerCase());
+    }
+    function validate() {
+      let ok = true;
+      if (!fields.name.value.trim()) { setError(fields.name, 'Please enter your name'); ok = false; } else setError(fields.name, '');
+      if (!fields.email.value.trim()) { setError(fields.email, 'Please enter your email'); ok = false; }
+      else if (!validateEmail(fields.email.value)) { setError(fields.email, 'Please enter a valid email'); ok = false; } else setError(fields.email, '');
+      if (!fields.subject.value.trim()) { setError(fields.subject, 'Please enter a subject'); ok = false; } else setError(fields.subject, '');
+      if (!fields.message.value.trim()) { setError(fields.message, 'Please write a message'); ok = false; } else setError(fields.message, '');
+      return ok;
+    }
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (validate()) {
+        alert('Thanks! Your message has been validated. Implement backend/email to actually send.');
+        form.reset();
+      }
+    });
+    form.addEventListener('input', (e) => {
+      const t = e.target;
+      if (t && t.id && fields[t.id]) {
+        setError(t, '');
+      }
+    });
+  }
+
+  // Mark dynamically created elements for staggered reveal
+  document.querySelectorAll('#skills .card').forEach((el, i) => { el.classList.add('reveal'); el.style.transitionDelay = `${Math.min(i * 80, 400)}ms`; });
+  document.querySelectorAll('#experience .timeline-item').forEach((el, i) => { el.classList.add('reveal'); el.style.transitionDelay = `${Math.min(i * 100, 500)}ms`; });
+
+  // IntersectionObserver reveal
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+  }
 })();
 
 

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2Pkf6r1KqvM9uZ3rroWAtxEvsC0BpFkOuk+qS0b+Y2Z7rGJ7Sk6bOZxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="assets/Resume.pdf" target="_blank" rel="noopener" data-nav="resume">Resume</a>
+        <a href="contact.html" data-nav="contact">Contact</a>
+      </nav>
+      <h1>My Resume</h1>
+      <p class="subtitle">A concise snapshot of my background and skills</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container reveal">
+        <section aria-labelledby="pi-title">
+          <h2 id="pi-title">Personal Information</h2>
+          <div class="card">
+            <div class="row two">
+              <div>
+                <p><strong>Name:</strong> Jyesht M</p>
+                <p><strong>Address:</strong> Bengaluru, India</p>
+              </div>
+              <div>
+                <p><strong>Email:</strong> <a href="mailto:jyesht147@gmail.com">jyesht147@gmail.com</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/Jyesht-2108" target="_blank" rel="noopener">github.com/Jyesht-2108</a></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container reveal">
+        <section aria-labelledby="edu-title">
+          <h2 id="edu-title">Education</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="title">B.E. in Computer Science and Engineering</div>
+              <div class="meta">Gopalan College of Engineering and Management · Expected 2027 · Bengaluru</div>
+              <p>Coursework includes Data Structures, Algorithms, Operating Systems, DBMS, Web Development.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <section aria-labelledby="skills-title">
+          <h2 id="skills-title">Skills</h2>
+          <div class="cards">
+            <div class="card">
+              <h3>Technical</h3>
+              <ul>
+                <li>JavaScript, TypeScript</li>
+                <li>React, HTML5, CSS3</li>
+                <li>Git, GitHub</li>
+                <li>Docker, Linux fundamentals</li>
+                <li>Java, C, Python</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Soft Skills</h3>
+              <ul>
+                <li>Leadership and mentoring</li>
+                <li>Communication and teamwork</li>
+                <li>Problem-solving and adaptability</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container reveal">
+        <section aria-labelledby="work-title">
+          <h2 id="work-title">Work Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="title">Secretary · TechEon (Tech Club), GCEM</div>
+              <div class="meta">Aug 2025 – Present · Bengaluru, India</div>
+              <p>Leading club activities, events, and technical initiatives; mentoring members and coordinating workshops.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="title">President · Entrepreneurship Cell, GCEM</div>
+              <div class="meta">Jul 2025 – Present · Bengaluru, India</div>
+              <p>Driving E-Cell roadmap, collaborations, and entrepreneurship programs within the college.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="title">Joint Secretary · TechEon (Tech Club), GCEM</div>
+              <div class="meta">Sep 2024 – Aug 2025 · Bengaluru, India</div>
+              <p>Supported club operations and organized technical sessions and competitions.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <section aria-labelledby="projects-title">
+          <h2 id="projects-title">Projects</h2>
+          <div class="cards">
+            <div class="card">
+              <h3>Crop Disease Prediction</h3>
+              <p>ML-assisted tool for early detection and guidance for crop diseases.</p>
+              <p><a href="#" aria-disabled="true">Link coming soon</a></p>
+            </div>
+            <div class="card">
+              <h3>Fitness App (ML-based)</h3>
+              <p>Modern mobile app using ML for form analysis and personalized plans.</p>
+              <p><a href="#" aria-disabled="true">Link coming soon</a></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> <span id="footer-name"></span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.documentElement.setAttribute('data-page', 'resume');
+  </script>
+  <script src="./script.js"></script>
+</body>
+</html>
+
